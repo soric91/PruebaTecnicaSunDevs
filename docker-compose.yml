@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./backend-pr-t
+      dockerfile: Dockerfile
+    container_name: backend-pr-t
+    env_file:
+      - ./.env
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend-pr-t/data:/app/data:ro
+    restart: unless-stopped
+    mem_limit: 384m
+    cpus: 0.75
+
+  frontend:
+    build:
+      context: ./frontendPrT
+      dockerfile: Dockerfile
+      args:
+        PUBLIC_URL_API: http://localhost:4000/api
+    container_name: frontend-prt
+    ports:
+      - "3010:3010"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.50
