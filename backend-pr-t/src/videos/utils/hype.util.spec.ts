@@ -23,9 +23,8 @@ describe('calculateHype', () => {
     expect(tutorial).toBe(normal * 2);
   });
 
-  it('should handle 0 comments with likes', () => {
-    // (0 + 500) / 10000 = 0.05
-    expect(calculateHype('0', '500', '10000', 'video')).toBe(0.05);
+  it('should return 0 when comments are 0 even with likes', () => {
+    expect(calculateHype('0', '500', '10000', 'video')).toBe(0);
   });
 
   it('should handle 0 likes with comments', () => {
