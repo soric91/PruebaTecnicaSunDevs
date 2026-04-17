@@ -13,6 +13,11 @@ services:
     restart: unless-stopped
     mem_limit: 384m
     cpus: 0.75
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:4000/api/videos"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
 
   frontend:
     build:
@@ -24,7 +29,8 @@ services:
     ports:
       - "3010:3010"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     restart: unless-stopped
     mem_limit: 256m
     cpus: 0.50

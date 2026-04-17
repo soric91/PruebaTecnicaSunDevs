@@ -1,20 +1,30 @@
-import { Injectable } from "@nestjs/common";
-import { VideoClean } from "./types";
-import { normalizeImageUrl } from "./utils/imagen.util";
-import { formatRelativeDate } from "./utils/date.util";
-import { calculateHype } from "./utils/hype.util";
-
+import { Injectable } from '@nestjs/common';
+import { RawVideo, VideoClean } from './types';
+import { normalizeImageUrl } from './utils/imagen.util';
+import { formatRelativeDate } from './utils/date.util';
+import { calculateHype } from './utils/hype.util';
 
 @Injectable()
 export class VideosMapper {
-    toClean(video: any): VideoClean {
-        return {
-            id: video.id,
-            thumbnailUrl: normalizeImageUrl(video.snippet?.thumbnails?.high?.url || "", video.snippet?.title || ""),
-            title: video.snippet?.title || "",
-            autor: video.snippet?.channelTitle || "",
-            publishedRelative: formatRelativeDate(video.snippet?.publishedAt || ""),
-            hype: calculateHype(video.statistics?.commentCount || "0", video.statistics?.likeCount || "0", video.statistics?.viewCount || "0", video.snippet?.title || "")
-        }
-    }
+  toClean(video: RawVideo): VideoClean {
+    const snippet = video.snippet;
+    const stats = video.statistics;
+
+    return {
+      id: video.id,
+      thumbnailUrl: normalizeImageUrl(
+        snippet?.thumbnails?.high?.url || '',
+        snippet?.title || '',
+      ),
+      title: snippet?.title || '',
+      autor: snippet?.channelTitle || '',
+      publishedRelative: formatRelativeDate(snippet?.publishedAt || ''),
+      hype: calculateHype(
+        stats?.commentCount || '0',
+        stats?.likeCount || '0',
+        stats?.viewCount || '0',
+        snippet?.title || '',
+      ),
+    };
+  }
 }

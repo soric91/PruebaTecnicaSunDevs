@@ -1,23 +1,38 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class VideoClean {
-  @ApiProperty({ example: 'abc123' })
+  @ApiProperty({ example: 'vid_001' })
   id: string;
 
-  @ApiProperty({
-    example: 'https://img.youtube.com/vi/abc123/maxresdefault.jpg',
-  })
+  @ApiProperty({ example: 'https://placehold.co/300x200?text=React' })
   thumbnailUrl: string;
 
-  @ApiProperty({ example: 'Curso completo de NestJS' })
+  @ApiProperty({ example: 'Tutorial de React Hooks' })
   title: string;
 
-  @ApiProperty({ example: 'Canal Dev' })
+  @ApiProperty({ example: 'DevChannel' })
   autor: string;
 
-  @ApiProperty({ example: 'Hace 2 días' })
+  @ApiProperty({ example: 'Hace 3 días' })
   publishedRelative: string;
 
-  @ApiProperty({ example: 0.2534 })
+  @ApiProperty({ example: 0.12, description: 'Nivel de hype calculado: (comments + likes) / views, x2 si es tutorial' })
   hype: number;
+}
+
+export interface RawVideo {
+  id: string;
+  snippet?: {
+    title?: string;
+    channelTitle?: string;
+    publishedAt?: string;
+    thumbnails?: {
+      high?: { url?: string };
+    };
+  };
+  statistics?: {
+    viewCount?: string;
+    likeCount?: string;
+    commentCount?: string;
+  };
 }

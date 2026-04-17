@@ -1,5 +1,7 @@
+import { memo } from "react";
 import HypeBar from "./HypeBar";
-const VideoCard = ({ video, index = 0 }) => {
+
+const VideoCard = memo(({ video, index = 0 }) => {
   const isTutorial = /tutorial/i.test(video.title);
   const hype = Number(video.hype || 0);
   const hypeStyles =
@@ -45,5 +47,7 @@ const VideoCard = ({ video, index = 0 }) => {
       </div>
     </article>
   );
-};
+});
+
+VideoCard.displayName = 'VideoCard';
 export default VideoCard;

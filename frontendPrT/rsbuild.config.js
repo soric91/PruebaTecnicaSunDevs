@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [pluginReact()],
   html: {
     title: 'Videos tutoriales',
-    favicon: './public/icons8-película-90.png',
+    favicon: './public/icons8-pelicula-90.png',
   },
   server: {
     port: 3010,
