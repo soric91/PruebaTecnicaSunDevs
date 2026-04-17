@@ -9,6 +9,10 @@ export function calculateHype(commentCount: string, likeCount: string, viewCount
         return 0;
     }
 
+    if (commentWeight === 0 ){
+        return 0;
+    }
+
     let hype = (commentWeight + likeWeight) / viewWeight;
     if (title.toLowerCase().includes("tutorial")) {
         hype *= 2;
