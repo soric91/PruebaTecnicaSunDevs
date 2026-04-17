@@ -2,7 +2,8 @@
 
 export function normalizeImageUrl(url: string, title: string): string {
     if (!url) {
-        return `https://placehold.co/300x200?text=${title.split(" ")[0]}`;
+        
+        return `https://placehold.co/300x200?text=${encodeURIComponent(title.split(" ")[0])}`;
     }
 
     if (url.includes("via.placeholder.com")) {
@@ -14,9 +15,9 @@ export function normalizeImageUrl(url: string, title: string): string {
             const textMatch = url.match(/text=([^&]+)/);
             const text = textMatch ? textMatch[1] : title;
 
-            return `https://placehold.co/${size}?text=${text}`
+            return `https://placehold.co/${size}?text=${encodeURIComponent(text)}`
         } catch {
-            return `https://placehold.co/300x200?text=${title.split(" ")[0]}`;
+            return `https://placehold.co/300x200?text=${encodeURIComponent(title.split(" ")[0])}`;
         }
 
     }

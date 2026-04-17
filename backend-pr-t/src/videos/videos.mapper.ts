@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { VideoClean } from "./types";
 import { normalizeImageUrl } from "./utils/imagen.util";
-import { formatRelativeDate } from "./utils/date.utill";
+import { formatRelativeDate } from "./utils/date.util";
 import { calculateHype } from "./utils/hype.util";
 
 

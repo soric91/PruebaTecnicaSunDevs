@@ -18,8 +18,6 @@ function HomePage() {
     );
   }
 
-  const dataVideo = videos[0];
-  const remainingVideos = videos.slice(1);
   if (!videos || videos.length === 0) {
     return (
       <div className="min-h-screen bg-background">
@@ -30,6 +28,8 @@ function HomePage() {
       </div>
     );
   }
+  const dataVideo = videos[0];
+  const remainingVideos = videos.slice(1);
 
   return (
   <div className="min-h-screen bg-background">
@@ -37,7 +37,7 @@ function HomePage() {
     <main className="max-w-7xl mx-auto px-4 py-6 space-y-8">
       <header className="space-y-2">
         <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground">
-          Cartelera de Conocimiento
+          Panel de Contenido
         </h1>
       </header>
       <TopVideoCard dataVideo={dataVideo} />
