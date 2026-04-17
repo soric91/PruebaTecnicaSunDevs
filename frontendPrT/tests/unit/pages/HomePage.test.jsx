@@ -1,32 +1,32 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import HomePage from './HomePage';
+import HomePage from '../../../src/Page/HomePage';
 
-vi.mock('../Context/VideoContext', () => ({
+vi.mock('../../../src/Context/VideoContext', () => ({
   useVideoContext: vi.fn(),
 }));
 
-vi.mock('../Components/Navbar', () => ({
+vi.mock('../../../src/Components/Navbar', () => ({
   default: () => <div data-testid="navbar">Navbar</div>,
 }));
 
-vi.mock('../Components/LoadingSkeleton', () => ({
+vi.mock('../../../src/Components/LoadingSkeleton', () => ({
   default: () => <div data-testid="loading-skeleton">Loading</div>,
 }));
 
-vi.mock('../Components/TopVideo', () => ({
+vi.mock('../../../src/Components/TopVideo', () => ({
   default: ({ dataVideo }) => (
     <div data-testid="top-video">Top: {dataVideo?.title}</div>
   ),
 }));
 
-vi.mock('../Components/VideoGrid', () => ({
+vi.mock('../../../src/Components/VideoGrid', () => ({
   default: ({ remainingVideos }) => (
     <div data-testid="video-grid">Grid: {remainingVideos.length}</div>
   ),
 }));
 
-import { useVideoContext } from '../Context/VideoContext';
+import { useVideoContext } from '../../../src/Context/VideoContext';
 
 describe('HomePage', () => {
   beforeEach(() => {

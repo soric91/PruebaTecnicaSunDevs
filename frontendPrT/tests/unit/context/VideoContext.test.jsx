@@ -1,9 +1,12 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import { GlobalVideoProvider, useVideoContext } from './VideoContext';
-import { getDataVideos } from '../Api/video';
+import {
+  GlobalVideoProvider,
+  useVideoContext,
+} from '../../../src/Context/VideoContext';
+import { getDataVideos } from '../../../src/Api/video';
 
-vi.mock('../Api/video', () => ({
+vi.mock('../../../src/Api/video', () => ({
   getDataVideos: vi.fn(),
 }));
 

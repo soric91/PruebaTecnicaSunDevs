@@ -1,6 +1,6 @@
-import { VideosService } from './videos.service';
-import { RepositoryService } from './repository/repository.service';
-import { VideosMapper } from './videos.mapper';
+import { VideosService } from '../../../src/videos/videos.service';
+import { RepositoryService } from '../../../src/videos/repository/repository.service';
+import { VideosMapper } from '../../../src/videos/videos.mapper';
 
 describe('VideosService', () => {
   let service: VideosService;

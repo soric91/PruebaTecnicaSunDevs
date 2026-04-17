@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { InternalServerErrorException } from '@nestjs/common';
-import { RepositoryService } from './repository.service';
+import { RepositoryService } from '../../../../src/videos/repository/repository.service';
 
 jest.mock('node:fs', () => ({
   existsSync: jest.fn(),

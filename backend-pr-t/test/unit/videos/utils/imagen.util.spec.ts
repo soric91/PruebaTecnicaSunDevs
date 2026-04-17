@@ -1,4 +1,4 @@
-import { normalizeImageUrl } from './imagen.util';
+import { normalizeImageUrl } from '../../../../src/videos/utils/imagen.util';
 
 describe('normalizeImageUrl', () => {
   it('returns placeholder when url is empty', () => {

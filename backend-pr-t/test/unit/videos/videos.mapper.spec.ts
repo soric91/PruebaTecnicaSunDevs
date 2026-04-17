@@ -1,4 +1,4 @@
-import { VideosMapper } from './videos.mapper';
+import { VideosMapper } from '../../../src/videos/videos.mapper';
 
 describe('VideosMapper', () => {
   let mapper: VideosMapper;

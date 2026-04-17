@@ -1,4 +1,4 @@
-import { formatRelativeDate } from './date.util';
+import { formatRelativeDate } from '../../../../src/videos/utils/date.util';
 
 describe('formatRelativeDate', () => {
   beforeEach(() => {

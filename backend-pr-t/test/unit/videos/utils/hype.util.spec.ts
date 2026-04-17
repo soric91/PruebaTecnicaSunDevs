@@ -1,4 +1,4 @@
-import { calculateHype } from './hype.util';
+import { calculateHype } from '../../../../src/videos/utils/hype.util';
 
 describe('calculateHype', () => {
   it('returns 0 when views are 0', () => {

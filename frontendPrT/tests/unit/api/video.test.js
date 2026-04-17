@@ -1,8 +1,8 @@
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
-import axios from './axios';
-import { getDataVideos } from './video';
+import axios from '../../../src/Api/axios';
+import { getDataVideos } from '../../../src/Api/video';
 
-vi.mock('./axios', () => ({
+vi.mock('../../../src/Api/axios', () => ({
   default: {
     get: vi.fn(),
   },

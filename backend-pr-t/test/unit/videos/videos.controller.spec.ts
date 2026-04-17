@@ -1,5 +1,5 @@
-import { VideosController } from './videos.controller';
-import { VideosService } from './videos.service';
+import { VideosController } from '../../../src/videos/videos.controller';
+import { VideosService } from '../../../src/videos/videos.service';
 
 describe('VideosController', () => {
   let controller: VideosController;
