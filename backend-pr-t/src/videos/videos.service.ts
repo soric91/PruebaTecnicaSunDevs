@@ -1,21 +1,20 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { VideosMapper } from './videos.mapper';
 import { RepositoryService } from './repository/repository.service';
+import { VideoClean } from './types';
 
 @Injectable()
 export class VideosService {
   constructor(
-    private repositoryService: RepositoryService,
-    private videosMapper: VideosMapper
+    private readonly repositoryService: RepositoryService,
+    private readonly videosMapper: VideosMapper,
   ) {}
 
-  getVideos() {
+  getVideos(): VideoClean[] {
     const rawVideos = this.repositoryService.getVideoData();
 
-    const cleanVideos = rawVideos.map(video =>
-      this.videosMapper.toClean(video)
-    );
-
-    return cleanVideos.sort((a, b) => b.hype - a.hype);
+    return rawVideos
+      .map((video) => this.videosMapper.toClean(video))
+      .sort((a, b) => b.hype - a.hype);
   }
 }

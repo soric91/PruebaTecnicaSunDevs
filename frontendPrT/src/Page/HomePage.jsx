@@ -28,6 +28,7 @@ function HomePage() {
       </div>
     );
   }
+
   const dataVideo = videos[0];
   const remainingVideos = videos.slice(1);
 
@@ -37,7 +38,7 @@ function HomePage() {
     <main className="max-w-7xl mx-auto px-4 py-6 space-y-8">
       <header className="space-y-2">
         <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground">
-          Panel de Contenido
+          Cartelera de Conocimiento
         </h1>
       </header>
       <TopVideoCard dataVideo={dataVideo} />

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useContext } from 'react';
-import { getDataVideos } from '../Api/video';
+import { getDataVideos } from '../Api/video.js';
 
 const VideoGlobalContext = createContext();
 
